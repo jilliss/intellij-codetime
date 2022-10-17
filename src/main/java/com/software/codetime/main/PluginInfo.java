@@ -3,7 +3,6 @@ package com.software.codetime.main;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.application.ApplicationInfo;
-import com.intellij.util.PlatformUtils;
 
 import java.util.Arrays;
 
@@ -33,7 +32,7 @@ public class PluginInfo {
 
     static {
         try {
-            IDE_NAME = PlatformUtils.getPlatformPrefix();
+            IDE_NAME = ApplicationInfo.getInstance().getFullApplicationName();
             IDE_VERSION = ApplicationInfo.getInstance().getFullVersion();
         } catch (Exception e) {
             System.out.println("Unable to retrieve IDE name and version info: " + e.getMessage());
@@ -41,27 +40,6 @@ public class PluginInfo {
     }
 
     public static int getPluginId() {
-        if (PlatformUtils.isIntelliJ()) {
-            return pluginId;
-        } else if (PlatformUtils.isPyCharm()) {
-            return PYCHARM_ID;
-        } else if (PlatformUtils.isAppCode()) {
-            return APPCODE_ID;
-        } else if (PlatformUtils.isCLion()) {
-            return CLION_ID;
-        } else if (PlatformUtils.isDataGrip()) {
-            return DATAGRIP_ID;
-        } else if (PlatformUtils.isGoIde()) {
-            return GOLAND_ID;
-        } else if (PlatformUtils.isPhpStorm()) {
-            return PHPSTORM_ID;
-        } else if (PlatformUtils.isRubyMine()) {
-            return RUBYMINE_ID;
-        } else if (PlatformUtils.isRider()) {
-            return RIDER_ID;
-        } else if (PlatformUtils.isWebStorm()) {
-            return WEBSTORM_ID;
-        }
         return pluginId;
     }
 

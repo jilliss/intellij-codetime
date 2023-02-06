@@ -31,7 +31,7 @@ repositories {
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
-    implementation(files("lib/swdc-java-ops-1.1.5.jar"))
+    implementation(files("lib/swdc-java-ops-1.1.6.jar"))
 }
 
 // Configure gradle-intellij-plugin plugin.
